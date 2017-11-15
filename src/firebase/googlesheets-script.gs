@@ -1,5 +1,5 @@
 //Add in your database secret
-var secret = 'RcvfPXlNHaQY8RCOOMxa0g2F0Dj2xKr8zcDGudOB'
+var secret = '<ADD_YOUR_DATABASE_SECRET>'
 
 
 function getFirebaseUrl(jsonPath) {
@@ -37,6 +37,7 @@ function startSync() {
   //Get the number of rows and columns which contain some content
   var [rows, columns] = [sheet.getLastRow(), sheet.getLastColumn()];
   //Get the data contained in those rows and columns as a 2 dimensional array
+  // starts at second row to skip my google sheets headers 
   var data = sheet.getRange(2, 1, rows, columns).getValues();
 
   //Use the syncMasterSheet function defined before to push this data to the "masterSheet" key in the firebase database
