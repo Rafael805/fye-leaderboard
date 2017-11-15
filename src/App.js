@@ -8,8 +8,10 @@ class App extends Component {
 
    constructor() {
       super();
+
       this.state ={
-         name: ['Ralph', 'Andres', 'Steve','Ralph', 'Andres', 'Steve']
+         name: [],
+         points: ''
       }
    }
 
@@ -17,7 +19,11 @@ class App extends Component {
       const itemsRef = firebase.database().ref('masterSheet');
       itemsRef.on('value', (snapshot) => {
          let items = snapshot.val();
-         console.log(`${items[1]}`);
+         this.setState({
+            name: items,
+            points: items[1][4] // Displays the points
+         });
+         console.log(`${items[1][4]}`);
       })
    }
 
@@ -30,17 +36,19 @@ class App extends Component {
             <thead>
                <tr>
                   <th>#</th>
-                  <th>Student</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
                   <th>Points</th>
                </tr>
             </thead>
 
             <tbody>
-               {this.state.name.map((item, i) => (
+               {this.state.name.map ((item, i) => (
                   <tr key={i}>
                      <td>{i + 1}</td>
-                     <td>{item}</td>
-                     <td>{i + 2}</td>
+                     <td>{item[2]}</td>
+                     <td>{item[1]}</td>
+                     <td>{this.state.points}</td>
                   </tr>
                )
             )}
