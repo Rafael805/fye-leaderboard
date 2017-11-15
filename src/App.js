@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import Table from 'react-bootstrap/lib/Table'
 import Title from './components/Title';
 import './App.css';
+import './firebase/firebase';
 
 class App extends Component {
-   state = {
-      student: [],
-   }
 
    render() {
       return (
