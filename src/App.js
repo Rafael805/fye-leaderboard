@@ -2,9 +2,24 @@ import React, { Component } from 'react';
 import Table from 'react-bootstrap/lib/Table'
 import Title from './components/Title';
 import './App.css';
-import './firebase/firebase';
+import firebase from './firebase/firebase';
 
 class App extends Component {
+
+   constructor() {
+      super();
+      this.state ={
+         name: ['Ralph', 'Andres', 'Steve','Ralph', 'Andres', 'Steve']
+      }
+   }
+
+   componentDidMount() {
+      const itemsRef = firebase.database().ref('masterSheet');
+      itemsRef.on('value', (snapshot) => {
+         let items = snapshot.val();
+         console.log(`${items[1]}`);
+      })
+   }
 
    render() {
       return (
@@ -21,16 +36,14 @@ class App extends Component {
             </thead>
 
             <tbody>
-                  <tr>
-                     <td>1</td>
-                     <td>Ralph</td>
-                     <td>100</td>
+               {this.state.name.map((item, i) => (
+                  <tr key={i}>
+                     <td>{i + 1}</td>
+                     <td>{item}</td>
+                     <td>{i + 2}</td>
                   </tr>
-                  <tr>
-                     <td>2</td>
-                     <td>Melani</td>
-                     <td>80</td>
-                  </tr>
+               )
+            )}
             </tbody>
          </Table>
       </div>
