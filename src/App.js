@@ -11,7 +11,6 @@ class App extends Component {
 
       this.state ={
          name: [],
-         points: ''
       }
    }
 
@@ -21,7 +20,6 @@ class App extends Component {
          let items = snapshot.val();
          this.setState({
             name: items,
-            points: items[1][4] // Displays the points
          });
          console.log(`${items[1][4]}`);
       })
@@ -38,6 +36,7 @@ class App extends Component {
                   <th>#</th>
                   <th>First Name</th>
                   <th>Last Name</th>
+                  <th>Mentor</th>
                   <th>Points</th>
                </tr>
             </thead>
@@ -48,7 +47,8 @@ class App extends Component {
                      <td>{i + 1}</td>
                      <td>{item[2]}</td>
                      <td>{item[1]}</td>
-                     <td>{this.state.points}</td>
+                     <td>{item[3]}</td>
+                     <td>{item[4]}</td>
                   </tr>
                )
             )}
