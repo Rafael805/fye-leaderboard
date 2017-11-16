@@ -44,11 +44,11 @@ class App extends Component {
             <tbody>
                {this.state.name.map ((item, i) => (
                   <tr key={i}>
-                     <td>{i + 1}</td>
-                     <td>{item[2]}</td>
-                     <td>{item[1]}</td>
-                     <td>{item[3]}</td>
-                     <td>{item[4]}</td>
+                     <td>{i + 1}</td> {/* # */}
+                     <td>{item[2]}</td> {/* First Name */}
+                     <td>{item[1]}</td> {/* Last Name */}
+                     <td>{item[3]}</td> {/* Mentor */}
+                     <td>{item[4]}</td> {/* Points */}
                   </tr>
                )
             )}
