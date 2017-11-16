@@ -3,9 +3,12 @@ import React, { Component } from 'react';
 class Title extends Component {
   render() {
     return (
-      <h1>
-         FYE Leaderboard
-      </h1>
+      <div>
+         <h1>
+            Oxnard College FYE Leaderboard
+         </h1>
+         <p>Created using Google Forms + Google Sheets + Google Apps Script + Google Firebase + React (Facebook)</p>
+      </div>
     );
   }
 }
