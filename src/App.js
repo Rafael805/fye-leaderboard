@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Table from 'react-bootstrap/lib/Table'
 import Title from './components/Title';
-import './App.css';
 import firebase from './firebase/firebase';
+import 'font-awesome/css/font-awesome.css'
+import './App.css';
 
 class App extends Component {
 
@@ -11,6 +12,7 @@ class App extends Component {
 
       this.state ={
          name: [],
+         current: true
       }
    }
 
@@ -25,6 +27,12 @@ class App extends Component {
       })
    }
 
+   change(value){
+      if(this.state.current !== value) {
+         this.setState({current: value});
+      }
+   }
+
    render() {
       return (
       <div>
@@ -37,7 +45,7 @@ class App extends Component {
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Mentor</th>
-                  <th>Points</th>
+                  <th>Points {<i className="fa fa-caret-down"></i>}</th>
                </tr>
             </thead>
 
