@@ -50,9 +50,10 @@ class App extends Component {
                   <th>Mentor</th>
                   <th>
                      Points
+                     <span> </span>
                      {<i onClick={(event) => this.change(false)}
                         className="fa fa-caret-down"> </i>}
-
+                     <span>  </span>
                      {<i onClick={(event) => this.change(true)}
                         className="fa fa-caret-up"> </i>}
                   </th>
@@ -60,6 +61,8 @@ class App extends Component {
             </thead>
 
             <tbody>
+               {/* Sorts the students with the most points to the
+                  least points */}
                {current && (name.map ((item, i) => (
                   <tr key={i}>
                      <td>{i + 1}</td> {/* # */}
@@ -71,16 +74,18 @@ class App extends Component {
                ))
             )}
 
-            {current === false && (name.slice(0).reverse().map ((item, i) => (
-               <tr key={i}>
-                  <td>{i + 1}</td> {/* # */}
-                  <td>{item[2]}</td> {/* First Name */}
-                  <td>{item[1]}</td> {/* Last Name */}
-                  <td>{item[3]}</td> {/* Mentor */}
-                  <td>{item[4]}</td> {/* Points */}
-               </tr>
-            ))
-         )}
+               {/* Reverses the list of students with the least points to the
+                  greatest points */}
+               {current === false && (name.slice(0).reverse().map ((item, i) => (
+                  <tr key={i}>
+                     <td>{i + 1}</td> {/* # */}
+                     <td>{item[2]}</td> {/* First Name */}
+                     <td>{item[1]}</td> {/* Last Name */}
+                     <td>{item[3]}</td> {/* Mentor */}
+                     <td>{item[4]}</td> {/* Points */}
+                  </tr>
+               ))
+            )}
             </tbody>
          </Table>
       </div>
