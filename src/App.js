@@ -34,6 +34,9 @@ class App extends Component {
    }
 
    render() {
+
+      const {name, current} = this.state;
+
       return (
       <div>
          <Title />
@@ -45,12 +48,19 @@ class App extends Component {
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Mentor</th>
-                  <th>Points {<i className="fa fa-caret-down"></i>}</th>
+                  <th>
+                     Points
+                     {<i onClick={(event) => this.change(false)}
+                        className="fa fa-caret-down"> </i>}
+
+                     {<i onClick={(event) => this.change(true)}
+                        className="fa fa-caret-up"> </i>}
+                  </th>
                </tr>
             </thead>
 
             <tbody>
-               {this.state.name.map ((item, i) => (
+               {current && (name.map ((item, i) => (
                   <tr key={i}>
                      <td>{i + 1}</td> {/* # */}
                      <td>{item[2]}</td> {/* First Name */}
@@ -58,8 +68,19 @@ class App extends Component {
                      <td>{item[3]}</td> {/* Mentor */}
                      <td>{item[4]}</td> {/* Points */}
                   </tr>
-               )
+               ))
             )}
+
+            {current === false && (name.slice(0).reverse().map ((item, i) => (
+               <tr key={i}>
+                  <td>{i + 1}</td> {/* # */}
+                  <td>{item[2]}</td> {/* First Name */}
+                  <td>{item[1]}</td> {/* Last Name */}
+                  <td>{item[3]}</td> {/* Mentor */}
+                  <td>{item[4]}</td> {/* Points */}
+               </tr>
+            ))
+         )}
             </tbody>
          </Table>
       </div>
