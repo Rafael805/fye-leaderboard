@@ -5,7 +5,7 @@ class Title extends Component {
     return (
       <div>
          <h1>
-            Oxnard College FYE Leaderboard
+            Oxnard College FYE Leaderboard lol
          </h1>
       </div>
     );
