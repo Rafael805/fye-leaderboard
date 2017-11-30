@@ -2,9 +2,11 @@
   "name": "fye-leaderboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rafael805.github.io/fye-leaderboard",
   "dependencies": {
     "firebase": "^4.6.2",
     "font-awesome": "^4.7.0",
+    "gh-pages": "^1.1.0",
     "google-auth-library": "^0.11.0",
     "googleapis": "^22.2.0",
     "react": "^16.1.1",
@@ -13,6 +15,8 @@
     "react-scripts": "1.0.17"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
