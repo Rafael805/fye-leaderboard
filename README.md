@@ -12,7 +12,7 @@ This project was inspired from freeCodeCamp's "Build a Camper Leaderboard" React
 + Google Apps Script
 
 # Quick Start
-`
+` 
 $ git clone https://github.com/Rafael805/fye-leaderboard.git
 
 $ cd fye-leaderboard    
