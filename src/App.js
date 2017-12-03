@@ -20,6 +20,7 @@ class App extends Component {
    }
 
    componentDidMount() {
+      console.log("Amazing!")
       const itemsRef = firebase.database().ref('masterSheet');
       itemsRef.on('value', (snapshot) => {
          let items = snapshot.val();
