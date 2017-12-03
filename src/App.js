@@ -53,16 +53,14 @@ class App extends Component {
 
       return (
       <div>
-         <h1>
-            Oxnard College FYE Leaderboard
-         </h1>
+         <img id="fye" src="oc_fye.png" alt="fye"/>
 
-            <input type="text"
-               placeholder="Search name"
-               className="form-control form-control-lg"
-               value={searchTerm}
-               onChange={this.updateSearch.bind(this)}
-            />
+         <input type="text"
+            placeholder="Search name"
+            className="form-control form-control-lg"
+            value={searchTerm}
+            onChange={this.updateSearch.bind(this)}
+         />
 
 
          <Table striped bordered condensed hover>

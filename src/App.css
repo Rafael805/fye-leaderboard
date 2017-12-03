@@ -37,6 +37,13 @@
    background-color: white;
 }
 
+#fye {
+   width: 300px;
+   padding: 14px;
+   display: block;
+   margin: 0 auto;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
