@@ -45,8 +45,12 @@ class App extends Component {
       const emoji = require("emoji-dictionary");
       const {name, searchName, current} = this.state;
       let updatedList = this.state.name.filter((item) => {
-         return item[2].toLowerCase().indexOf(this.state.searchTerm
-            .toLowerCase()) !== -1});
+         return (
+            item[2].toLowerCase().indexOf(this.state.searchTerm
+            .toLowerCase()) >= 0 || item[1].toLowerCase().indexOf(this.state.searchTerm
+               .toLowerCase()) >= 0
+         )
+      });
 
       return (
       <div>
@@ -88,7 +92,7 @@ class App extends Component {
                   {current && (updatedList.map((item, i) => (
                      <tr key={i}>
                         <td>{i + 1}</td> {/* # */}
-                        <td> {item[2]}</td> {/* First Name */}
+                        <td>{item[2]}</td> {/* First Name */}
                         <td>{item[1]}</td> {/* Last Name */}
                         <td>{emoji.getUnicode("heart_eyes") + item[4]}</td> {/* Team */}
                         <td>{item[5]}</td> {/* Points */}
