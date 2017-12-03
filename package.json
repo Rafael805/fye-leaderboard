@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://rafael805.github.io/fye-leaderboard",
   "dependencies": {
+    "emoji-dictionary": "^1.0.7",
     "firebase": "^4.6.2",
     "font-awesome": "^4.7.0",
     "gh-pages": "^1.1.0",
