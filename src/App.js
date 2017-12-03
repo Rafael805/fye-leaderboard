@@ -8,12 +8,15 @@ class App extends Component {
 
    constructor() {
       super();
-
       this.state ={
          name: [],
          searchTerm: '',
          current: true
       }
+   }
+
+   componentWillMount() {
+      this.setState({searchName: this.state.name});
    }
 
    componentDidMount() {
@@ -33,14 +36,17 @@ class App extends Component {
       }
    }
 
-   searchTerm(event) {
-      console.log(event.target.value)
+   updateSearch(event) {
+      this.setState({searchTerm: event.target.value.substr(0,20)});
+      //console.log(event.target.value)
    }
 
    render() {
       const emoji = require("emoji-dictionary");
-
-      const {name, current} = this.state;
+      const {name, searchName, current} = this.state;
+      let updatedList = this.state.name.filter((item) => {
+         return item[2].toLowerCase().indexOf(this.state.searchTerm
+            .toLowerCase()) !== -1});
 
       return (
       <div>
@@ -50,15 +56,11 @@ class App extends Component {
 
             <input type="text"
                placeholder="Search name"
+               className="form-control form-control-lg"
                value={this.state.searchTerm}
-               onChange={event => this.setState({searchTerm: event.target.value})}
+               onChange={this.updateSearch.bind(this)}
             />
 
-            <button
-               className="btn btn-success"
-               onClick={this.searchTerm}>
-               Search
-            </button>
 
          <Table striped bordered condensed hover>
             <thead>
@@ -78,18 +80,18 @@ class App extends Component {
                </tr>
             </thead>
 
-            <tbody>
+            <tbody >
                {/* Sorts the students with the most points to the
                   least points */}
                   {/* Sorts the students with the most points to the
                                     least points */}
-                  {current && (name.map((item, i) => (
+                  {current && (updatedList.map((item, i) => (
                      <tr key={i}>
                         <td>{i + 1}</td> {/* # */}
                         <td> {item[2]}</td> {/* First Name */}
                         <td>{item[1]}</td> {/* Last Name */}
-                        <td>{emoji.getUnicode("heart_eyes") + item[3]}</td> {/* Team */}
-                        <td>{item[4]}</td> {/* Points */}
+                        <td>{emoji.getUnicode("heart_eyes") + item[4]}</td> {/* Team */}
+                        <td>{item[5]}</td> {/* Points */}
                      </tr>
                   ))
                )}
@@ -97,7 +99,7 @@ class App extends Component {
 
                {/* Reverses the list of students with the least points to the
                   greatest points */}
-               {current === false && (name.slice(0).reverse().map ((item, i) => (
+               {current === false && (updatedList.slice(0).reverse().map ((item, i) => (
                   <tr key={i}>
                      <td>{i + 1}</td> {/* # */}
                      <td>{item[2]}</td> {/* First Name */}
