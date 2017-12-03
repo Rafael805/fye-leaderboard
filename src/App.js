@@ -43,12 +43,11 @@ class App extends Component {
 
    render() {
       const emoji = require("emoji-dictionary");
-      const {name, searchName, current} = this.state;
-      let updatedList = this.state.name.filter((item) => {
+      const {name, searchTerm, current} = this.state;
+      let updatedList = name.filter((item) => {
          return (
-            item[2].toLowerCase().indexOf(this.state.searchTerm
-            .toLowerCase()) >= 0 || item[1].toLowerCase().indexOf(this.state.searchTerm
-               .toLowerCase()) >= 0
+            item[2].toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0 ||
+            item[1].toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0
          )
       });
 
@@ -61,7 +60,7 @@ class App extends Component {
             <input type="text"
                placeholder="Search name"
                className="form-control form-control-lg"
-               value={this.state.searchTerm}
+               value={searchTerm}
                onChange={this.updateSearch.bind(this)}
             />
 
