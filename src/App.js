@@ -4,6 +4,7 @@ import firebase from './firebase/firebase'
 import 'font-awesome/css/font-awesome.css'
 import './App.css'
 
+// ============== Emoji constants ================
 const emoji = require("emoji-dictionary");
 const lion = emoji.getUnicode("tiger");
 const fireball = emoji.getUnicode("fire");
@@ -12,8 +13,7 @@ const green_dragon = emoji.getUnicode("seedling");
 const baby = emoji.getUnicode("baby");
 const jose = emoji.getUnicode("laughing");
 
-class App extends Component {
-
+export default class App extends Component {
    constructor() {
       super();
       this.state ={
@@ -21,10 +21,6 @@ class App extends Component {
          searchTerm: '',
          current: true
       }
-   }
-
-   componentWillMount() {
-      this.setState({searchName: this.state.name});
    }
 
    componentDidMount() {
@@ -47,11 +43,12 @@ class App extends Component {
 
    updateSearch(event) {
       this.setState({searchTerm: event.target.value.substr(0,20)});
-      //console.log(event.target.value)
+      // console.log(event.target.value)
    }
 
    render() {
       const {name, searchTerm, current} = this.state;
+
       let updatedList = name.filter((item) => {
          return (
             item[2].toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0 ||
@@ -62,15 +59,12 @@ class App extends Component {
       return (
       <div>
          <img id="fye" src="oc_fye.png" alt="fye"/>
-
          <input type="text"
             placeholder="Search name"
             className="form-control form-control-lg"
             value={searchTerm}
             onChange={this.updateSearch.bind(this)}
          />
-
-
          <Table striped bordered condensed hover>
             <thead>
                <tr>
@@ -116,7 +110,6 @@ class App extends Component {
                   ))
                )}
 
-
                {/* Reverses the list of students with the least points to the
                   greatest points */}
                {current === false && (updatedList.slice(0).reverse().map ((item, i) => (
@@ -124,11 +117,18 @@ class App extends Component {
                      <td>{i+1}</td>{/* # */}
                      <td>{item[2]}</td>{/* First Name */}
                      <td>{item[1]}</td>{/* Last Name */}
-                     <td>{
-                        item[4] === "Lions" ? (
-                           emoji.getUnicode("heart_eyes") + item[4]) : (
-                              "lol"
-                           )}
+                     <td>
+                        {(() => {
+                           switch (item[4]) {
+                           case "Lions": return lion;
+                           case "Green Legacy": return green_dragon;
+                           case "Jose's Girls": return jose;
+                           case "Los Chiqui Babies": return baby;
+                           case "Fireball": return fireball;
+                           case "Pink Flying Ponies": return pink;
+                           default: return "error"
+                          }
+                        })()} {item[4]}
                      </td>{/* Team */}
                      <td>{item[5]}</td>{/* Points */}
                   </tr>
@@ -140,5 +140,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
