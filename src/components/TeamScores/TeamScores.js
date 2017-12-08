@@ -57,7 +57,7 @@ export default class TeamScores extends Component {
      	return (
          <div className="teamscores">
             <h1 style={{'textAlign': 'center'}}>Team Scores</h1>
-            <PieChart width={620} height={800} onMouseEnter={this.onPieEnter}>
+            <PieChart width={620} height={580} >
               <Pie
                 data={data}
                 cx={300}
