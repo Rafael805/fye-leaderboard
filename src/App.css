@@ -1,62 +1,23 @@
-.App {
-  text-align: center;
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+ul.header {
+  background-color: #f8f9fa;
+  padding: 0;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
+ul.header li a {
+  color: #444;
+  font-weight: bold;
+  text-decoration: none;
   padding: 20px;
-  color: white;
+  display: inline-block;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-
-.fa {
-   padding-left: 3px;
-}
-
-.table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
-   background-color: #16b286;
-   color: white;
-   font-weight: normal;
-}
-
-.form-control {
-   width: 98%;
-   margin: 10px;
-}
-
-.input[type=text] {
-   margin: 1%;
-   width: 130px;
-   box-sizing: border-box;
-   border: 2px solid #ccc;
-   border-radius: 4px;
-   font-size: 16px;
-   background-color: white;
-   margin: 10px;
-}
-
-#fye {
-   width: 300px;
-   padding: 14px;
-   display: block;
-   margin: 0 auto;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.brand {
+   color: #16b286;
+   font-weight: bold;
+   font-size: 24px;
+   padding-left: 10px;
 }
