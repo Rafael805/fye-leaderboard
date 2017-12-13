@@ -16,7 +16,7 @@ const jose = emoji.getUnicode("two_women_holding_hands");
 export default class StudentLeaderboard extends Component {
    constructor() {
       super();
-      this.state ={  
+      this.state ={
          name: [],
          searchTerm: '',
          current: true

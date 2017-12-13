@@ -30,12 +30,12 @@ export default class TeamScores extends Component {
       console.log('score => ' + score);
       console.log('score[1] => ' + score[1]);
       console.log('score[2] => ' + score[2]);
-      const data = [{name: 'Los Chiqui Babies', value: score[0]},
-                     {name: 'Green Legacy', value: score[1]},
-                     {name: 'Jose\'s Girls', value: score[2]},
-                     {name: 'Fireball', value: score[3]},
-                     {name: 'Pink Flying Ponies', value: score[4]},
-                     {name: 'Lions', value: score[5]}
+      const data = [{name: 'Fireball', value: score[1]},
+                     {name: 'Green Legacy', value: score[2]},
+                     {name: 'Jose\'s Girls', value: score[3]},
+                     {name: 'Lions', value: score[4]},
+                     {name: 'Los Chuquis Babies', value: score[5]},
+                     {name: 'Pink Flying Ponies', value: score[6]}
                   ];
       console.log(`scores ${this.state.scores}`)
 
