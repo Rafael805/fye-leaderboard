@@ -1,0 +1,17 @@
+h1 {
+   padding-bottom: 10px;
+}
+
+.container {
+   width: 100%;
+   margin: 0 auto;
+}
+
+.recharts-wrapper {
+   margin: 0 auto;
+   height: 500px;
+}
+
+.recharts-default-legend {
+   padding-top: 10px;
+}
