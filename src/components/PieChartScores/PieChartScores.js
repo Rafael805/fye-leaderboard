@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { PieChart, Pie, Cell, BarChart, Bar,
-   XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
 import firebase from '../../firebase/firebase'
+import { team } from '../../constants/emoji'
 import './PieChartScoresStyles.css'
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#d368e6', '#e8262f'];
@@ -29,12 +29,12 @@ export default class PieChartScores extends Component {
    render () {
       let score = this.state.scores.map(item => item[2]);
       //console.log('score => ' + score);
-      const data = [{name: 'Fireball', points: score[1]},
-                     {name: 'Green Legacy', points: score[2]},
-                     {name: 'Jose\'s Girls', points: score[3]},
-                     {name: 'Lions', points: score[4]},
-                     {name: 'Los Chiquis Babies', points: score[5]},
-                     {name: 'Pink Flying Ponies', points: score[6]}
+      const data = [{name: team.fireball, points: score[1]},
+                     {name: team.green_legacy, points: score[2]},
+                     {name: team.jose, points: score[3]},
+                     {name: team.lion, points: score[4]},
+                     {name: team.baby, points: score[5]},
+                     {name: team.pink, points: score[6]}
                   ];
       console.log(`scores ${this.state.scores}`)
 
@@ -72,11 +72,10 @@ export default class PieChartScores extends Component {
               </Pie>
             </PieChart>
          <hr/>
-            <BarChart width={830} height={480} data={data}>
+            <BarChart width={945} height={480} data={data}>
                <XAxis dataKey="name"/>
                <YAxis />
                <Tooltip/>
-               <Legend />
                <Bar type="monotone" dataKey="points" barSize={45} fill="#16b286"/>
             </BarChart>
          </div>

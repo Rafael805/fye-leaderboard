@@ -1,17 +1,9 @@
 import React, { Component } from 'react'
 import { Table } from 'react-bootstrap'
 import firebase from '../../firebase/firebase'
+import { team } from '../../constants/emoji'
 import 'font-awesome/css/font-awesome.css'
 import './StudentLeaderboardStyles.css'
-
-// ============== Emoji constants ================
-const emoji = require("emoji-dictionary");
-const lion = emoji.getUnicode("tiger");
-const fireball = emoji.getUnicode("fire");
-const pink = emoji.getUnicode("cherry_blossom");
-const green_dragon = emoji.getUnicode("seedling");
-const baby = emoji.getUnicode("baby");
-const jose = emoji.getUnicode("two_women_holding_hands");
 
 export default class StudentLeaderboard extends Component {
    constructor() {
@@ -95,15 +87,15 @@ export default class StudentLeaderboard extends Component {
                         <td>
                            {(() => {
                               switch (item[4]) {
-                              case "Lions": return lion;
-                              case "Green Legacy": return green_dragon;
-                              case "Jose's Girls": return jose;
-                              case "Los Chiqui Babies": return baby;
-                              case "Fireball": return fireball;
-                              case "Pink Flying Ponies": return pink;
-                              default: return "error"
+                              case "Lions": return team.lion;
+                              case "Green Legacy": return team.green_legacy;
+                              case "Jose's Girls": return team.jose;
+                              case "Los Chiqui Babies": return team.baby;
+                              case "Fireball": return team.fireball;
+                              case "Pink Flying Ponies": return team.pink;
+                              default: return ""
                              }
-                        })()} {item[4]}
+                        })()}
                         </td>{/* Team */}
                         <td>{item[5]}</td>{/* Points */}
                      </tr>
@@ -120,15 +112,15 @@ export default class StudentLeaderboard extends Component {
                      <td>
                         {(() => {
                            switch (item[4]) {
-                           case "Lions": return lion;
-                           case "Green Legacy": return green_dragon;
-                           case "Jose's Girls": return jose;
-                           case "Los Chiqui Babies": return baby;
-                           case "Fireball": return fireball;
-                           case "Pink Flying Ponies": return pink;
-                           default: return "error"
+                           case "Lions": return team.lion;
+                           case "Green Legacy": return team.green_legacy;
+                           case "Jose's Girls": return team.jose;
+                           case "Los Chiqui Babies": return team.baby;
+                           case "Fireball": return team.fireball;
+                           case "Pink Flying Ponies": return team.pink;
+                           default: return ""
                           }
-                        })()} {item[4]}
+                        })()}
                      </td>{/* Team */}
                      <td>{item[5]}</td>{/* Points */}
                   </tr>
