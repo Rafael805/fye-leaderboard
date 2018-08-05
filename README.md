@@ -11,8 +11,7 @@ This project was inspired from freeCodeCamp's "Build a Camper Leaderboard" React
 + React-router 4.2.0
 + React-bootstrap: 0.31.5
 
-# Quick Start
-`
+# Quick Start 🔑
 $ git clone https://github.com/Rafael805/fye-leaderboard.git
 $ cd fye-leaderboard    
 $ npm install  
