@@ -8,15 +8,14 @@ This project was inspired from freeCodeCamp's "Build a Camper Leaderboard" React
 + React 16.1.1
 + Firebase 4.6.2
 + Google Apps Script
++ React-router 4.2.0
++ React-bootstrap: 0.31.5
 
 # Quick Start
-`  
+`
 $ git clone https://github.com/Rafael805/fye-leaderboard.git
-
 $ cd fye-leaderboard    
-
 $ npm install  
-
 $ npm start  
 `
 
